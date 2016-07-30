@@ -1,14 +1,12 @@
-import {INCREMENT_COUNTER, DECREMENT_COUNTER} from '../actions';
+import {combineReducers}    from 'redux';
+import {routerReducer}      from 'react-router-redux';
+import counterReducer       from './counter';
+import todoReducer          from './todo';
 
-function counterReducer (state = 0, action) {
-  switch (action.type) {
-    case INCREMENT_COUNTER:
-      return state + action.increment;
-    case DECREMENT_COUNTER:
-      return state - action.decrement;
-    default:
-      return state;
-  }
-}
+const reducers = combineReducers({
+  counter: counterReducer,
+  todos: todoReducer,
+  routing: routerReducer
+});
 
-export default counterReducer;
+export default reducers;

@@ -1,0 +1,306 @@
+.containerHome {
+  text-align: center;
+  max-width: 80%;
+  margin: 10px auto;
+}
+
+.containerCounter {
+  width: 50%;
+  margin: 12% auto;
+  background-color: #39393A;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 2px;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.containerCounter h2 {
+  margin: 0;
+}
+
+.containerCounter h1 {
+  font-family: 'Monaco','Arial';
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+}
+
+.list-libraries {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5em;
+  width: 30%;
+  margin: 0 auto 50px auto;
+}
+
+.list-tasks {
+  display: table;
+  padding: 20px;
+  background-color: #E2E1E0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  width: 60%;
+  margin: 60px auto;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.task {
+  list-style-type: none;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 15px;
+  margin: 7px auto;
+  border-radius: 2px;
+  position: relative;
+}
+
+.task:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.task div {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.task div span {
+  display: inline-block;
+  color: #fff;
+  margin-left: 5px;
+  padding: 2px 5px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+strong[data-name="id"] {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #ED6A5A;
+  font-weight: 400;
+}
+
+span[data-name="done"] {
+  background-color: rgb(88, 180, 24)
+}
+
+span[data-name="done"]:hover {
+  background-color: rgb(52, 110, 12)
+}
+
+span[data-name="clear"] {
+  background-color: #ED6A5A;
+}
+
+span[data-name="clear"]:hover {
+  background-color: #a44438;
+}
+
+.btn {
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: rgb(11, 101, 221);
+  color: #fff;
+}
+
+.btn-success {
+  background-color: rgb(96, 177, 24);
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: rgb(187, 15, 15);
+  color: #fff;
+}
+
+.btn-lg {
+  padding: 20px 24px;
+  font-size: 1.3em;
+}
+
+.addTask{
+  position: absolute;
+  border: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.btn-primary:hover {
+  background-color: rgb(6, 61, 135);
+}
+
+.btn-success:hover {
+  background-color: rgb(70, 130, 18);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: rgb(140, 8, 8);
+  color: #fff;
+}
+
+.btn:active, .btn:focus, .btn:visited {
+  border: 0;
+  outline: 0;
+}
+
+.through {
+  text-decoration: line-through;
+  color: #b6b9b2;
+}
+
+.task input {
+  border: 0;
+  border-bottom: 1px solid #b6b9b2;
+  text-align: center;
+  outline: 0;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.task input[name="duration"] {
+  width: 40px;
+  margin-left: 5px;
+}
+
+@media screen and (max-width:800px) {
+  .list-tasks {
+    width: 90%;
+  }
+}
+
+.headerMain {
+  padding: 10px 10px 0 10px;
+  text-align: center;
+  background-color: rgb(11, 69, 111);
+  color: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.headerMain h3 {
+  margin: 0;
+  font-size: 1.8em;
+  padding: 10px;
+}
+
+.headerMain ul {
+  padding: 0;
+  margin: 0;
+}
+
+.headerMain ul li {
+  display: inline-block;
+  width: 25%;
+  /*padding: 5px;*/
+}
+
+.headerMain a {
+  display: block;
+  color: #fff;
+  line-height: 2;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.headerMain a:hover {
+  border-bottom: 2px solid #fff;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(2, 33, 69);
+  color: #fff;
+}
+
+.footer p i {
+  font-size: 2.5em;
+}
+.center {
+  text-align: center;
+}
+
+.margin-right {
+  margin-right: 10px;
+}
+
+.active {
+  color: #52B4AF !important;
+  border-bottom: 2px solid #52B4AF !important;
+}
+
+
+/* view about */
+
+
+.container {
+  text-align: center;
+}
+
+.user {
+  background-color: #BF0404;
+  display: inline-block;
+  padding: 10px;
+  margin: 15% auto;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+.user img {
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  border: 2px solid white;
+  float: left;
+  margin-right: 10px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.user a {
+  text-decoration: none;
+  color: #C7D943;
+}
+
+.user a:hover {
+  text-decoration: none;
+  color: #6BA5F2;
+}
+
+.user-name {
+  font-size: 1.4em;
+}
+
+.user-description {
+  color: white;
+  display: inline-block;
+  margin-top: 7%;
+}
+
+@media screen and (max-width: 500px) {
+  .user img {
+    float: none;
+  }
+
+  .user-description {
+    margin-top: 0;
+  }
+}

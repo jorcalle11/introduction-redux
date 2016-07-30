@@ -1,25 +1,22 @@
-import React          from 'react';
-import ReactDOM       from 'react-dom';
-import {Provider}     from 'react-redux';
-import store          from './store';
-import App            from './components/App';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import $          from 'jquery';
+import Routes     from './routes';
 
 const mount = document.getElementById('app');
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
+  Routes,
   mount
 )
 
-/*
-function render () {
-  ReactDOM.render(
-    <App estado = {store.getState()} increment={()=>{store.dispatch({type:'INCREMENT_COUNTER', increment: 2})}} decrement={()=>store.dispatch({type:'DECREMENT_COUNTER', decrement: 3})}/>,
-    mount
-  );
+$(document).ready(navigation);
+
+function navigation() {
+  $('.headerMain a').on('click',handleClick);
 }
-render();
-store.subscribe(render);
-*/
+
+function handleClick() {
+  $('.active').removeClass('active');
+  $(this).addClass('active');
+}
