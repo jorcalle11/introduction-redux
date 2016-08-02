@@ -16,7 +16,7 @@ export function addUser (user) {
 
 export function removeUser (id) {
   return {
-    type : ADD_USER,
+    type : REMOVE_USER,
     id
   }
 }

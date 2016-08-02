@@ -1,46 +1,27 @@
 import React from 'react';
 
-class newUser extends React.Component {
+class UserForm extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
-    this.handleChangeLastName = this.handleChangeLastName.bind(this);
+    this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleAddUser = this.handleAddUser.bind(this);
-    console.log(props.users);
     this.state = {
       user: {
         id: props.users.length + 1,
-        name: {
-          first: '',
-          last: ''
-        },
+        name: '',
         age: 23,
         username: '',
         numTasks: 1
       }
-    }
+    };
   }
 
-  handleChangeFirstName(e) {
+  handleChangeName(e) {
     e.preventDefault();
     let newState = Object.assign({},this.state.user,{
-      name: {
-        first: e.target.value.trim(),
-        last: this.state.user.name.last
-      }
+      name: e.target.value,
     });
-    this.setState({user:newState});
-  }
-
-  handleChangeLastName(e) {
-    e.preventDefault();
-    let newState = Object.assign({},this.state.user,{
-      name: {
-        first: this.state.user.name.first,
-        last: e.target.value.trim()
-      }
-    })
     this.setState({user:newState});
   }
 
@@ -57,14 +38,11 @@ class newUser extends React.Component {
     this.props.addUser.call(null,this.state.user);
     let newState = {
       id: ++this.state.user.id,
-      name: {
-        first: '',
-        last: ''
-      },
+      name: '',
       age: 23,
       username: '',
       numTasks: 1
-    }
+    };
     this.setState({user: newState});
   }
 
@@ -74,18 +52,9 @@ class newUser extends React.Component {
       <form className="formAddUser">
         <input
           type="text"
-          name="first"
-          placeholder="Pepito"
-          value={user.name.first}
-          onChange={this.handleChangeFirstName}
-        />
-        <input
-          type="text"
-          name="last"
-          placeholder="Florez"
-          value={user.name.last}
-          onChange={this.handleChangeLastName}
-        />
+          placeholder="Pepito Perez"
+          value={user.name}
+          onChange={this.handleChangeName} />
         <input
           type="text"
           name="username"
@@ -93,12 +62,12 @@ class newUser extends React.Component {
           value={user.username}
           onChange={this.handleChangeUsername}
         />
-        <button className="btn btn-primary addTask" onClick={this.handleAddUser}>
+        <button className="btn btn-primary addTask" disabled={!user.name || !user.username} onClick={this.handleAddUser}>
           <i className="material-icons">add</i>
         </button>
       </form>
-    )
+    );
   }
 }
 
-export default newUser;
+export default UserForm;

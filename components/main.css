@@ -100,7 +100,6 @@
   border-radius: 2px;
   display: inline-block;
   padding: 7px;
-  cursor: pointer;
   background-color: rgb(18, 67, 79);
   color: #fff;
 }
@@ -111,6 +110,38 @@
   font-size: .7em;
   font-style: italic;
   font-weight: 300;
+}
+
+.hoverUsername {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  transition-property: background, top;
+  transition-duration: .3s;
+  transition-timing-function: ease-out;
+}
+
+.invisible {
+  visibility: hidden;
+  transition-property: visibility;
+  transition-duration: .7s;
+  transition-timing-function: ease-out;
+}
+
+.none {
+  display: none;
+}
+
+.optionsButtons {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.4;
+  font-size: 2em;
+  font-weight: 900;
 }
 
 .title {

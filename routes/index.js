@@ -6,7 +6,7 @@ import store                                      from '../store';
 import App                                        from '../containers/App';
 import Home                                       from '../components/Home';
 import Counter                                    from '../components/Counter';
-import Todos                                      from '../components/Todos';
+import PathTasks                                  from '../containers/Tasks';
 import About                                      from '../components/About';
 
 const history = syncHistoryWithStore(browserHistory, store);
@@ -17,7 +17,7 @@ const Routes = (
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="contador" component={Counter}/>
-        <Route path="tareas" component={Todos}/>
+        <Route path="tareas" component={PathTasks}/>
       </Route>
       <Route path="/about" component={About}></Route>
     </Router>

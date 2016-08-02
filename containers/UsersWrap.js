@@ -1,35 +1,32 @@
 import React      from 'react';
 import {connect}  from 'react-redux';
-import User       from './User';
-import NewUser    from './newUser';
+import UsersList  from '../components/Users/UsersList';
+import NewUser    from '../components/Users/UserForm';
 import {addUser, removeUser} from '../actions/user';
 
 @connect(mapStateToProps, mapDispatchToProps)
 class Users extends React.Component {
 
-  handleClickSelectedUser(id) {
-    this.props.selectedUser.call(null,id);
-  }
-
-  handleAddUser(user) {
-    this.props.addUser(user);
-  }
-
   render() {
     const {users} = this.props;
+
+    let usersRender = <UsersList
+      users={this.props.users}
+      removeUser={(id)=> this.props.removeUser(id)}
+    />
+
+    if(!users.length) {
+      usersRender = <h2 className="center">No hay usuarios registrados :(</h2>
+    }
+
     return (
       <section className="containerUsers">
         <h3 className="center">Selecciona un Usuario: </h3>
-        <div>
-          {
-            users.map((user,index) => {
-              return (
-                <User key={index} data={user} selectedUser={this.handleClickSelectedUser.bind(this)}/>
-              )
-            })
-          }
-        </div>
-        <NewUser users={this.props.users} addUser={this.handleAddUser.bind(this)}/>
+        {usersRender}
+        <NewUser
+          users={this.props.users}
+          addUser={(user)=> this.props.addUser(user)}
+          />
       </section>
     )
   }
@@ -37,7 +34,7 @@ class Users extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    users: state.todos.users
+    users: state.users
   }
 }
 

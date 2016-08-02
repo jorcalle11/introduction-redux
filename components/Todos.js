@@ -2,7 +2,7 @@ import React                  from 'react'
 import {connect}              from 'react-redux';
 import $                      from 'jquery';
 import {addTask, removeTask, toggleCompleted, completedTask}  from '../actions/todo';
-import Users from './Users';
+import Users from '../containers/UsersWrap';
 import Todo                   from './Todo';
 import './main.css';
 
@@ -130,8 +130,8 @@ class Todos extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    tasks: state.todos.tasks,
-    users: state.todos.users
+    tasks: state.todos,
+    users: state.users
   }
 }
 
