@@ -1,7 +1,5 @@
 import React        from 'react'
-import $            from 'jquery';
 import TodoItem     from './TodoItem';
-import TodoActions  from './TodoActions';
 
 class TodoList extends React.Component {
 

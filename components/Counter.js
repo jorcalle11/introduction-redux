@@ -12,37 +12,35 @@ class Counter extends React.Component {
     this.handleStop = this.handleStop.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {valor: 10, run: false};
-    this.timer = null;
+    this.state = {valor: 10, run: false, timer: null};
   }
 
   handleClickIncrement(e) {
     e.preventDefault();
-    if(!this.state.run) {
-      this.timer = setInterval(() => this.props.increment(this.state.valor),1000);
-      this.setState(Object.assign({},this.state,{
-        run: true
-      }));
-    }
+    clearInterval(this.state.timer);
+    this.setState(Object.assign({},this.state,{
+      run: true,
+      timer: setInterval(() => this.props.increment(this.state.valor),1000)
+    }));
   }
 
   handleClickDecrement(e) {
     e.preventDefault();
-    if (!this.state.run) {
-      this.timer = setInterval(() => this.props.decrement(this.state.valor),1000);
-      this.setState(Object.assign({},this.state,{
-        run: true
-      }));
-    }
+    clearInterval(this.state.timer);
+    this.setState(Object.assign({},this.state,{
+      run: true,
+      timer: setInterval(() => this.props.decrement(this.state.valor),1000)
+    }));
   }
 
   handleStop(e) {
     e.preventDefault();
     if (this.state.run || this.props.counter !== 0) {
-      clearInterval(this.timer);
+      clearInterval(this.state.timer);
       this.props.decrement(this.props.counter);
       this.setState(Object.assign({},this.state,{
-        run: false
+        run: false,
+        timer: null
       }));
     }
   }
@@ -50,7 +48,7 @@ class Counter extends React.Component {
   handlePause(e) {
     e.preventDefault();
     if (this.state.run) {
-      clearInterval(this.timer);
+      clearInterval(this.state.timer);
       this.setState(Object.assign({},this.state,{
         run: false
       }));
