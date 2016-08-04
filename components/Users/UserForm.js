@@ -7,12 +7,13 @@ class UserForm extends React.Component {
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleAddUser = this.handleAddUser.bind(this);
     this.state = {
+      edit: false,
       user: {
         id: props.users.length + 1,
         name: '',
         age: 23,
         username: '',
-        numTasks: 1
+        numTasks: 0
       }
     };
   }
@@ -35,15 +36,26 @@ class UserForm extends React.Component {
 
   handleAddUser(e) {
     e.preventDefault();
-    this.props.addUser.call(null,this.state.user);
-    let newState = {
-      id: ++this.state.user.id,
-      name: '',
-      age: 23,
-      username: '',
-      numTasks: 1
-    };
-    this.setState({user: newState});
+    if(!this.state.edit) {
+      this.props.addUser.call(null,this.state.user);
+    } else {
+      this.props.editUser(this.state.user);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.userToEdit.payload.hasOwnProperty('id')) {
+      this.setState({user: nextProps.userToEdit.payload, edit: true});
+    } else {
+      let newState = {
+        id: ++this.state.user.id,
+        name: '',
+        age: 23,
+        username: '',
+        numTasks: 0
+      }
+      this.setState({edit:false, user: newState});
+    }
   }
 
   render() {

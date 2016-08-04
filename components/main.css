@@ -16,7 +16,7 @@
   padding: 10px;
 }
 
-.containerUsers {
+.containerUsers, .containerTasks{
   display: inline-block;
   padding: 10px;
   vertical-align: top;
@@ -26,7 +26,11 @@
   width: 30%;
 }
 
-.containerUsers h3 {
+.containerTasks {
+  width: 60%;
+}
+
+.containerUsers h3, .containerTasks h3 {
   margin: 0;
 }
 
@@ -50,6 +54,14 @@
   margin: 0;
   padding: 0;
   font-size: 2em;
+}
+
+@media screen and (max-width: 1000px) {
+  .containerUsers, .containerTasks {
+    width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .list-libraries {
@@ -152,6 +164,7 @@
 
 .task {
   list-style-type: none;
+  text-align: left;
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   padding: 15px;
@@ -181,7 +194,6 @@
 }
 
 .task div span {
-  display: inline-block;
   color: #fff;
   margin-left: 5px;
   padding: 2px 5px;

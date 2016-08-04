@@ -1,7 +1,8 @@
-export const ADD_TASK       = 'ADD_TASK';
-export const REMOVE_TASK    = 'REMOVE_TASK';
+export const ADD_TASK          = 'ADD_TASK';
+export const REMOVE_TASK       = 'REMOVE_TASK';
 export const TOGGLE_COMPLETED  = 'TOGGLE_COMPLETED';
-export const COMPLETED_TASK = 'COMPLETED_TASK';
+export const COMPLETED_TASK    = 'COMPLETED_TASK';
+export const REMOVE_USER_TASKS = 'REMOVE_USER_TASKS';
 
 export function addTask (task) {
   return {
@@ -32,5 +33,12 @@ export function completedTask(id) {
   return {
     type: COMPLETED_TASK,
     id
+  }
+}
+
+export function removeUserTasks(idUser) {
+  return {
+    type : REMOVE_USER_TASKS,
+    idUser
   }
 }

@@ -1,17 +1,18 @@
 import React from 'react';
 import $     from 'jquery';
 
-class data extends React.Component {
+class UserItem extends React.Component {
 
   selectItem(id) {
     $('.selected').remove();
     $(`#data${id}`).append('<i class="material-icons selected">done</i>');
-    this.props.selectedUser.call(null,id);
+    this.props.userSelected(id);
     this.onMouseOut(id);
   }
 
-  removeUser(id) {
-    this.props.removeUser.call(null,id);
+  handleSelectUserToEdit(user) {
+    this.props.selectUserToEdit(user);
+    this.onMouseOut(user.id);
   }
 
   onMouseOver(id) {
@@ -40,7 +41,7 @@ class data extends React.Component {
   }
 
   render() {
-    const {data} = this.props;
+    const {data, removeUser, removeUserTasks} = this.props;
     return (
       <article
         id={`data${data.id}`}
@@ -49,6 +50,7 @@ class data extends React.Component {
         onMouseOut={this.onMouseOut.bind(this, data.id)}>
         {data.name}
         <span>{data.username}</span>
+        {data.numTasks}
         <div className="invisible">
           <i
             style={{color: 'rgb(88, 180, 24)'}}
@@ -57,9 +59,15 @@ class data extends React.Component {
             done
           </i>
           <i
+            style={{color: 'rgb(22, 144, 213)'}}
+            className="material-icons none"
+            onClick={this.handleSelectUserToEdit.bind(this,data)}>
+            create
+          </i>
+          <i
             style={{color: '#ED6A5A'}}
             className="material-icons none"
-            onClick={this.removeUser.bind(this,data.id)}>
+            onClick={() => {removeUserTasks(data.id); removeUser(data.id)}}>
             clear
           </i>
         </div>
@@ -68,4 +76,4 @@ class data extends React.Component {
   }
 }
 
-export default data;
+export default UserItem;
